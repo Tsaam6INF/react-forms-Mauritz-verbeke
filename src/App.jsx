@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     axios.get(apiEndPoint).then((result) => {
-      setPosts(result.data.data); // Use only the array
+      setPosts(result.data.data);
     });
   }, []);
 
