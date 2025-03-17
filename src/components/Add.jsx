@@ -3,7 +3,7 @@ import axios from "axios";
 
 const apiEndPoint = "https://api-o0p6.onrender.com/api/user";
 
-export default function Add({ onUserAdded }) {
+export default function Add({ onUserAdded, onCancel }) {
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -28,6 +28,7 @@ export default function Add({ onUserAdded }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h2>Gebruiker Toevoegen</h2>
       <input
         type="text"
         name="first_name"
@@ -61,6 +62,9 @@ export default function Add({ onUserAdded }) {
         required
       />
       <button type="submit">Gebruiker toevoegen</button>
+      <button type="button" onClick={onCancel}>
+        Annuleren
+      </button>
     </form>
   );
 }

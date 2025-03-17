@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const apiEndPoint = "https://api-o0p6.onrender.com/api/user"; // Algemeen eindpunt zonder user_id
+const apiEndPoint = "https://api-o0p6.onrender.com/api/user";
 
 export default function Edit({ user, onUserUpdated, onCancel }) {
   const [formData, setFormData] = useState(user);
@@ -16,10 +16,14 @@ export default function Edit({ user, onUserUpdated, onCancel }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Verwijder het login veld uit formData voordat je het verstuurt
+    const { login, ...dataToSend } = formData;
+
     try {
-      // PUT verzoek naar het algemene eindpunt
-      await axios.put(apiEndPoint, formData); // Verstuur de gegevens via body, zonder user_id in de URL
-      onUserUpdated(formData); // Roep de callback aan om de lijst te updaten
+      // Verstuur het PUT verzoek zonder het login veld
+      await axios.put(apiEndPoint, dataToSend);
+      onUserUpdated(dataToSend); // Roep de callback aan om de lijst te updaten
     } catch (error) {
       console.error("Fout bij bewerken van gebruiker:", error);
     }
@@ -47,7 +51,7 @@ export default function Edit({ user, onUserUpdated, onCancel }) {
         name="login"
         value={formData.login}
         onChange={handleChange}
-        required
+        disabled // Voeg disabled toe zodat de gebruiker het login veld niet kan bewerken
       />
       <input
         type="password"

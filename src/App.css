@@ -1,42 +1,186 @@
+/* Algemene instellingen en reset voor marges/padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f7fc;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Zorg ervoor dat de body altijd minstens 100% van de hoogte van het scherm gebruikt */
+  margin: 0;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 800px; /* Max breedte voor de inhoud */
   padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Titels en tekst */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Knoppen */
+button {
+  background-color: #646cff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #555eff;
+}
+
+button:focus {
+  outline: none;
+}
+
+button[type="button"] {
+  background-color: #f44336;
+}
+
+button[type="button"]:hover {
+  background-color: #e53935;
+}
+
+/* Formulierstijl */
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #fff;
+}
+
+input:focus {
+  border-color: #646cff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(100, 108, 255, 0.5);
+}
+
+/* Gebruikerslijst */
+.users-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.users-list div {
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.users-list h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.users-list p {
+  color: #555;
+}
+
+.users-list button {
+  align-self: flex-start;
+  background-color: #4caf50;
+}
+
+.users-list button:hover {
+  background-color: #45a049;
+}
+
+/* Toevoegen en Bewerken Knoppen */
+.add-edit-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.add-edit-btns button {
+  width: 48%;
+  padding: 12px;
+  font-size: 1rem;
+  background-color: #646cff;
+  border-radius: 5px;
+  color: white;
+}
+
+.add-edit-btns button:hover {
+  background-color: #555eff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #root {
+    width: 100%;
+    padding: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  h1 {
+    font-size: 2rem;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  form {
+    width: 100%;
+    padding: 1.5rem;
   }
-}
 
-.card {
-  padding: 2em;
-}
+  input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
 
-.read-the-docs {
-  color: #888;
+  .users-list div {
+    padding: 1rem;
+  }
+
+  .add-edit-btns {
+    flex-direction: column;
+  }
+
+  .add-edit-btns button {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
 }
