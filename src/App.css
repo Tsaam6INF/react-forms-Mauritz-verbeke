@@ -86,6 +86,7 @@ input {
   border-radius: 5px;
   font-size: 1rem;
   background-color: #fff;
+  color: #333; /* Zorg ervoor dat de tekstkleur donker is */
 }
 
 input:focus {
